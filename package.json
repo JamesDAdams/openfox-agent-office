@@ -1,0 +1,41 @@
+{
+  "name": "openfox-agent-office",
+  "version": "1.0.0",
+  "description": "Runs Agent Office as an OpenFox plugin and drives its workers with OpenFox's own LLM providers.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "openfox": {
+    "apiVersion": 2,
+    "entry": "./dist/index.js",
+    "displayName": "Agent Office",
+    "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 21h18M5 21V7l7-4 7 4v14M9 21v-4h6v4M9 11h.01M15 11h.01M9 15h.01M15 15h.01\"/></svg>",
+    "description": "Opens Agent Office in a new tab, runs it as a managed subprocess, and lets its workers run on the LLM providers OpenFox already has configured.",
+    "capabilities": [
+      "ui",
+      "rpc",
+      "settings",
+      "notifications"
+    ],
+    "timeoutMs": 900000
+  },
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run --passWithNoTests",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "openfox": ">=2.0.140"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.0",
+    "tsup": "^8.4.0",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.0"
+  },
+  "license": "MIT"
+}
